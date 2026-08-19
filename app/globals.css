@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 255 255 255;
+  --bg-soft: 246 247 251;
+  --bg-elevated: 255 255 255;
+  --bg-elevated-2: 240 241 247;
+  --line: 226 228 236;
+  --line-strong: 203 207 222;
+  --ink: 15 17 26;
+  --muted: 90 96 115;
+  --accent: 91 95 239;
+  --accent-bright: 79 70 229;
+  --accent-dim: 67 63 199;
+  --accent-soft: 237 237 255;
+  --on-accent: 255 255 255;
+  --success: 22 163 74;
+  --success-soft: 232 248 238;
+}
+
+.dark {
+  --bg: 9 11 19;
+  --bg-soft: 13 16 27;
+  --bg-elevated: 18 21 36;
+  --bg-elevated-2: 24 28 47;
+  --line: 32 37 62;
+  --line-strong: 46 52 84;
+  --ink: 236 238 245;
+  --muted: 148 155 176;
+  --accent: 108 108 255;
+  --accent-bright: 138 130 255;
+  --accent-dim: 70 66 199;
+  --accent-soft: 29 28 61;
+  --on-accent: 255 255 255;
+  --success: 52 211 153;
+  --success-soft: 10 38 30;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--ink));
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background-color: rgb(var(--accent));
+  color: rgb(var(--on-accent));
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(var(--accent-bright));
+}
+
+.section-underline {
+  display: block;
+  width: 2.25rem;
+  height: 3px;
+  border-radius: 999px;
+  background: rgb(var(--accent));
+  margin-top: 0.6rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid rgb(var(--accent-bright));
+  outline-offset: 3px;
+}
+
+.card-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+}
+
+.glow-radial {
+  background: radial-gradient(closest-side, rgb(var(--accent) / 0.35), transparent 70%);
+}
+
+/* Horizontal scroll-snap media gallery inside project cards */
+.media-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.media-scroll::-webkit-scrollbar {
+  display: none;
+}
+.media-scroll > * {
+  scroll-snap-align: start;
+  flex: 0 0 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-lift:hover {
+    transform: none;
+  }
+}
