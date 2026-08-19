@@ -99,15 +99,6 @@ export default function CaseStudy() {
                 <Users className="h-3.5 w-3.5" /> {caseStudy.role}
               </span>
             </div>
-
-            {/* <a
-              href={caseStudy.doc}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-xs font-semibold text-on-accent transition-transform hover:-translate-y-0.5"
-            >
-              <FileText className="h-3.5 w-3.5" /> Read the full PFE presentation PDF
-            </a> */}
             <div className="mt-6 flex flex-wrap gap-3">
   {caseStudy.doc.map((document, index) => (
     <a
