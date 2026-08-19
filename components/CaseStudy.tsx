@@ -100,14 +100,28 @@ export default function CaseStudy() {
               </span>
             </div>
 
-            <a
+            {/* <a
               href={caseStudy.doc}
               target="_blank"
               rel="noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-xs font-semibold text-on-accent transition-transform hover:-translate-y-0.5"
             >
               <FileText className="h-3.5 w-3.5" /> Read the full PFE presentation PDF
-            </a>
+            </a> */}
+            <div className="mt-6 flex flex-wrap gap-3">
+  {caseStudy.doc.map((document, index) => (
+    <a
+      key={document}
+      href={document}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-xs font-semibold text-on-accent transition-transform hover:-translate-y-0.5"
+    >
+      <FileText className="h-3.5 w-3.5" />
+      {index === 0 ? "Read the PFE presentation" : `Read document ${index + 1}`}
+    </a>
+  ))}
+</div>
           </div>
 
           <div className="min-h-[280px] lg:min-h-full">
